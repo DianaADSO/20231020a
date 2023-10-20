@@ -1,18 +1,23 @@
 <?php
 
-/** Esta función se encarda de consultar todos los datos de la tabla  tb_usuarios
+/** Esta es una función de uso doble se encarda de consultar todos los datos de la tabla  tb_usuarios o de un solo usuario 
+ *  @param      texto       se utiliza como parámetro opcional para consultar los datos de un solo usuario
  *  @Return     número     retorna el resultado de consultar los datos de la tabla
  */
 //Función para consultar los datos de la tabla  tb_usuarios
-function consultar(){
+function consultar($usuario = null){
 
-    $salida = " ";
+    $salida = " "; // Inicializa la variable
 
     //Conexión con la base de datos
     $connexion  = mysqli_connect('localhost', 'root', 'root', 'db_proyecto_ddm');  //Conexión con la base de datos
-    $sql        = "select * from tb_usuarios"; //slecet para consultar los datos de todos los usuarios
-    $resultado  = $connexion->query($sql);  //Resultado de ejecutar el query
+    $sql        = " select * from tb_usuarios"; //slecet para consultar los datos de todos los usuarios
+    
 
+    if ($usuario != null) $sql .= " where usuario = '$usuario'"; // Valida si el parametro es null 
+
+    $resultado  = $connexion->query($sql);  //Resultado de ejecutar el query
+    
     //Recorre el recordset
     while( $fila = mysqli_fetch_assoc($resultado)){
 
