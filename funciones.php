@@ -2,10 +2,11 @@
 
 /** Esta es una función de uso doble se encarda de consultar todos los datos de la tabla  tb_usuarios o de un solo usuario 
  *  @param      texto       se utiliza como parámetro opcional para consultar los datos de un solo usuario
+ *  @param      texto       se utiliza como parámetro opcional para consultar los datos de un solo usuario validando
  *  @Return     número     retorna el resultado de consultar los datos de la tabla
  */
 //Función para consultar los datos de la tabla  tb_usuarios
-function consultar($usuario = null){
+function consultar($usuario = null, $clave = null){
 
     $salida = " "; // Inicializa la variable
 
@@ -14,7 +15,8 @@ function consultar($usuario = null){
     $sql        = " select * from tb_usuarios"; //slecet para consultar los datos de todos los usuarios
     
 
-    if ($usuario != null) $sql .= " where usuario = '$usuario'"; // Valida si el parametro es null 
+    if ($usuario != null) $sql .= " where usuario = '$usuario'"; // Valida si el parametro usuario es null y pone la condicion
+    if ($clave != null)   $sql .= " and clave = '$clave'"; // Valida si el parametro clave es null y pone la condicion 
 
     $resultado  = $connexion->query($sql);  //Resultado de ejecutar el query
     
