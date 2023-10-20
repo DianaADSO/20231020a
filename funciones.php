@@ -1,9 +1,10 @@
 <?php
 
-/** Esta es una función de uso doble se encarda de consultar todos los datos de la tabla  tb_usuarios o de un solo usuario 
+/** Esta es una función de uso doble se encarga de consultar todos los datos de la tabla  tb_usuarios o de un solo usuario 
+ *  y también sirve para validar
  *  @param      texto       se utiliza como parámetro opcional para consultar los datos de un solo usuario
  *  @param      texto       se utiliza como parámetro opcional para consultar los datos de un solo usuario validando
- *  @Return     número     retorna el resultado de consultar los datos de la tabla
+ *  @return     número     retorna el resultado de consultar los datos de la tabla
  */
 //Función para consultar los datos de la tabla  tb_usuarios
 function consultar($usuario = null, $clave = null){

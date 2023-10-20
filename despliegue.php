@@ -4,7 +4,7 @@
 include('funciones.php');
 
 // Se invoca la función consultar
-echo consultar('pepito', 'pp');
+echo consultar();
 
 
 ?>
